@@ -1,8 +1,11 @@
 import React from "react";
 import TrackList from "../Tracklist/Tracklist";
-import Track from "../Track/Track";
 
-function Playlist({ name, tracks, onRemove, onSave }) {
+function Playlist({ tracks, onRemove, onSave, playlistName, onNameChange, isSaving }) {
+
+    const handleNameChange = (e) => {
+        onNameChange(e.target.value);
+    };
 
     const handleSave = () => {
         if(onSave) onSave(tracks);
@@ -10,18 +13,27 @@ function Playlist({ name, tracks, onRemove, onSave }) {
 
     return (
         <section>
-            <h2>{name}</h2>
+            <input 
+                value={playlistName}
+                onChange={handleNameChange}
+                placeholder="New playlist"
+            />
+            {tracks.length === 0  && <p>Your playlist is empty. Add some tracks!</p>}
             
-            {tracks && tracks.length > 0 ? (
+            {tracks && tracks.length > 0 && (
                 <TrackList 
                     tracks={tracks} 
                     isRemoval={true} 
                     onRemove={onRemove} 
                 />
-            ) : (
-                <p>No tracks here yet...</p>
             )}
-            <button onClick={handleSave}>Save to Spotify</button>
+
+            <button 
+                onClick={handleSave}
+                disabled={tracks.length === 0 || isSaving}
+            >
+                {isSaving ? 'Saving...' : 'Save to Spotify'}
+            </button>
             
         </section>
     );

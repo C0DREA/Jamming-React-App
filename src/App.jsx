@@ -5,19 +5,44 @@ import SearchBar from './components/SearchBar/SearchBar.jsx';
 import TrackList from './components/Tracklist/Tracklist.jsx';
 import Playlist from './components/Playlist/Playlist.jsx';
 import { useState } from 'react';
+import Spotify from './util/Spotify.js';
 
 function App() {
 
+  // setting states
+
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [playlistName, setPlaylistName] = useState('New Playlist');
   const [searchResults, setSearchResults] = useState([]);
-  const search = (term) => {
-    const mockResults = [
-      { id: 1, name: 'Song A', artist: 'Artist A', album: 'Album A' },
-      { id: 2, name: 'Song B', artist: 'Artist B', album: 'Album B' },
-      { id: 3, name: 'Song C', artist: 'Artist C', album: 'Album C' }
-    ]
-    setSearchResults(mockResults);
-  }
+
+  // adding loading states
+
+  const [isSearching, setIsSearching] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+
+  // functions
+
+  const search = async (term) => {
+
+    // error handling for search
+
+    try {
+      setIsSearching(true);
+      const results = await Spotify.search(term);
+      setSearchResults(results);
+    } catch (error) {
+      console.error('Search failed!', error);
+    } finally {
+      setIsSearching(false);
+    };
+
+    // original version without error handling
+
+    setIsSearching(true);
+    const results = await Spotify.search(term);
+    setSearchResults(results);
+    setIsSearching(false);
+  };
   
   const addTrack = (track) => {
     // preventing duplicates
@@ -30,22 +55,49 @@ function App() {
     setPlaylistTracks(playlistTracks.filter(t => t.id !== track.id));
   };
 
-  const savePlaylist = (tracks) => {
-    const trackNames = tracks.map(track => track.name);
-    console.log('Saving playlist to Spotify:', trackNames)
+  // error handling for savePlaylist
+  const savePlaylist = async (tracks) => {
+    
+    if (trackUris.length === 0) return;
+
+    setIsSaving(true);
+    try {
+      const trackUris = tracks.map(track => track.uri);
+      await Spotify.savePlaylist(playlistName, trackUris);
+
+      setPlaylistTracks([]); // clear playlist after saving
+      setPlaylistName('New Playlist'); // reset playlist name
+
+    } catch (error) {
+      console.error('Save playlist failed!', error);
+      
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
     <div className='app'>
       <Header />
-      <SearchBar onSearch={search} />
+      <SearchBar 
+        onSearch={search} 
+        isSearching={isSearching} 
+      />
       <div className='content'>
-        <TrackList tracks={searchResults} isRemoval={false} onAdd={addTrack} />
-        <Playlist 
-          name='My Playlist' 
+        <TrackList 
+          tracks={searchResults} 
+          isRemoval={false} 
+          onAdd={addTrack}
+          playlistTracks={playlistTracks} 
+        />
+        <Playlist
           tracks={playlistTracks}
           onRemove={removeTrack}
-          onSave={savePlaylist}/>
+          onSave={savePlaylist}
+          playlistName={playlistName}
+          onNameChange={setPlaylistName}
+          isSaving={isSaving}
+        />
       </div>
     </div>
   );

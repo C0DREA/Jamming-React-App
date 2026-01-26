@@ -1,24 +1,25 @@
 import React from "react";
 import Track from "../Track/Track.jsx";
 
-function TrackList({ tracks, isRemoval, onAdd, onRemove }) {
+function TrackList({ tracks, isRemoval, onAdd, onRemove, playlistTracks }) {
     return (
         <section>
-            <h2>Results</h2>
+            {tracks.map(track => {
+                const isInPlaylist = playlistTracks?.some(
+                    t => t.id === track.id
+                );
 
-            {tracks && tracks.length > 0 ? (
-                tracks.map(track => (
-                    <Track 
-                        key={track.id} 
-                        track={track} 
+                return (
+                    <Track
+                        key={track.id}
+                        track={track}
                         isRemoval={isRemoval}
                         onAdd={onAdd}
                         onRemove={onRemove}
-                     />
-                ))
-            ) : (
-                <p>Tracks will appear here</p>
-            )}            
+                        isDisabled={isInPlaylist}
+                    />
+                );
+            })}
         </section>
     );
 }

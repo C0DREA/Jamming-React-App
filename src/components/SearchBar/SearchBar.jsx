@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, isSearching }) {
 
     const [term, setTerm] = useState("");
 
@@ -16,15 +16,22 @@ function SearchBar({ onSearch }) {
     };
 
     return (
-        <section>
+        <div className="search-bar">
             <input 
                 type="text" 
-                placeholder="Search..." 
+                placeholder="Enter a song, artist, or album..." 
                 value={term} 
                 onChange={handleChange} 
-                onKeyPress={handleKeyPress} />
-            <button onClick={handleSearch}>Search</button>
-        </section>
+                onKeyDown={handleKeyPress}
+                disabled={isSearching}
+            />
+            <button 
+                onClick={handleSearch}
+                disabled={isSearching}
+            >
+                {isSearching ? 'Searching...' : 'Search'}
+            </button>
+        </div>
     );
 }
 
