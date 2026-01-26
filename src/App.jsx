@@ -35,15 +35,8 @@ function App() {
     } finally {
       setIsSearching(false);
     };
-
-    // original version without error handling
-
-    setIsSearching(true);
-    const results = await Spotify.search(term);
-    setSearchResults(results);
-    setIsSearching(false);
   };
-  
+
   const addTrack = (track) => {
     // preventing duplicates
     if(!playlistTracks.find(t => t.id === track.id)) {
@@ -57,12 +50,11 @@ function App() {
 
   // error handling for savePlaylist
   const savePlaylist = async (tracks) => {
-    
+    const trackUris = tracks.map(track => track.uri);
     if (trackUris.length === 0) return;
 
     setIsSaving(true);
     try {
-      const trackUris = tracks.map(track => track.uri);
       await Spotify.savePlaylist(playlistName, trackUris);
 
       setPlaylistTracks([]); // clear playlist after saving
@@ -100,7 +92,7 @@ function App() {
         />
       </div>
     </div>
-  );
-}
+    );
+  }
 
 export default App;
