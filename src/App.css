@@ -13,11 +13,20 @@ header {
   margin-bottom: 1rem;
 }
 
-/* FLEX LAYOUT - Positions search results left, playlist right */
-
+/* LAYOUT - two-column on wide screens, stacked on small screens */
 .content {
   display: flex;
   gap: 2rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 900px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 360px; /* main results + fixed playlist column */
+    gap: 2rem;
+    align-items: start;
+  }
 }
 
 /* RESPONSIVE - On mobile, stack vertically instead of side-by-side */

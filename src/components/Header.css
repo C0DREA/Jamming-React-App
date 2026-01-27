@@ -3,7 +3,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+  /* Keep header visually consistent across light and dark modes by using a dark gradient */
+  background: linear-gradient(135deg, #1e1e1e 0%, #111111 100%);
   border-bottom: 2px solid var(--accent-color);
   margin-bottom: 2rem;
   border-radius: 8px;
@@ -18,11 +19,12 @@ header h1 {
 }
 
 .theme-toggle {
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   color: var(--text-primary);
   border: 2px solid var(--accent-color);
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
+  border-radius: 24px;
 }
 
 .theme-toggle:hover:not(:disabled) {

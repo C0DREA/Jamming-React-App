@@ -6,6 +6,7 @@
   background-color: var(--bg-secondary);
   border-radius: 12px;
   box-shadow: var(--card-shadow);
+  align-items: center;
 }
 
 .search-bar input {
@@ -17,6 +18,10 @@
   color: var(--text-primary);
   font-size: 1rem;
   transition: border-color 0.3s ease;
+}
+
+.search-bar input {
+  max-width: 640px;
 }
 
 .search-bar input:focus {
