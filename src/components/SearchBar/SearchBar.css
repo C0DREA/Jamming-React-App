@@ -1,7 +1,10 @@
 .search-bar {
   display: flex;
   gap: 1rem;
+  margin: 2rem 0;
   margin-bottom: 2rem;
+  width: 100%;
+  max-width: none;
   padding: 1.5rem;
   background-color: var(--bg-secondary);
   border-radius: 12px;
@@ -11,21 +14,24 @@
 
 .search-bar input {
   flex: 1;
-  padding: 0.75rem 1rem;
+  padding: 0 1.25rem;
   border: 2px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  height: 56px;
 }
 
 .search-bar input {
   padding: var(--input-padding-vertical) var(--input-padding-horizontal);        /* taller, more clickable area */
-  font-size: var(--input-font-size);                                             /* slightly larger text */
+  font-size: var(--input-font-size);
+  height: 48px;                                             /* slightly larger text */
   min-height: 48px;                                                              /* ensures consistent height across browsers */
   border-radius: 12px;
-  max-width: 760px;                                                               /* keep it from growing too wide */
+  max-width: 760px;
+  border-radius: 8px;                                                               /* keep it from growing too wide */
 }
 
 .search-bar input:focus {
@@ -44,13 +50,33 @@
 }
 
 .search-bar button {
-  padding: var(--btn-padding-vertical) var(--btn-padding-horizontal);
+  padding: 0 1.75rem;
   font-size: var(--btn-font-size);
   min-width: 130px;
-  border-radius: 24px;
+  border-radius: 10px;
+  height: 56px;
+  white-space: nowrap;
 }
 
 @media (max-width: 480px) {
   .search-bar input { max-width: 100%; font-size: 1rem; min-height: 44px; }
   .search-bar button { min-width: 100px; padding: 0.6rem 1rem; font-size: 0.95rem; }
+}
+
+@media (min-width: 900px) {
+  .search-bar input {
+    height: 56px;
+    font-size: 1.15rem;
+    padding: 0 1.25rem;
+  }
+
+   .search-bar button {
+    height: 56px;
+    font-size: 1.05rem;
+    padding: 0 1.5rem;
+  }
+
+  .search-bar {
+    margin-top: 2rem;
+  }
 }

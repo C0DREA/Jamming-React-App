@@ -6,6 +6,7 @@
   box-shadow: var(--card-shadow);
   max-height: 70vh;
   overflow-y: auto;
+  font-size: 1.05rem;
 }
 
 .playlist input {
@@ -40,6 +41,18 @@
   font-size: 1rem;
 }
 
+.playlist input,
+.playlist button {
+  height: 52px;
+  font-size: 1.05rem;
+}
+
 @media (max-width: 480px) {
-  .playlist input { font-size: 1rem; }
+
+  .playlist {
+    font-size: 1.1rem;
+  }
+  .playlist input { 
+    font-size: 1rem;
+  }
 }

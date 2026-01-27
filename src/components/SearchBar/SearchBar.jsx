@@ -1,6 +1,7 @@
 // SEARCH BAR COMPONENT
 
 import React from "react";
+import "./SearchBar.css";
 import { useState } from "react";
 
 // Input field where user types song/artist/album names

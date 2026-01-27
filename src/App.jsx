@@ -88,25 +88,31 @@ function App() {
   return (
     <div className='app'>
       <Header />
-      <SearchBar 
-        onSearch={search} 
-        isSearching={isSearching} 
-      />
+      
       <div className='content'>
-        <TrackList 
-          tracks={searchResults} 
-          isRemoval={false} 
-          onAdd={addTrack}
-          playlistTracks={playlistTracks} 
-        />
-        <Playlist
-          tracks={playlistTracks}
-          onRemove={removeTrack}
-          onSave={savePlaylist}
-          playlistName={playlistName}
-          onNameChange={setPlaylistName}
-          isSaving={isSaving}
-        />
+        <div className='left-column'>
+          <SearchBar 
+            onSearch={search} 
+            isSearching={isSearching} 
+          />
+          <TrackList 
+            tracks={searchResults} 
+            isRemoval={false} 
+            onAdd={addTrack}
+            playlistTracks={playlistTracks} 
+          />
+        </div>
+        <div className='right-column'>
+          <Playlist
+            tracks={playlistTracks}
+            onRemove={removeTrack}
+            onSave={savePlaylist}
+            playlistName={playlistName}
+            onNameChange={setPlaylistName}
+            isSaving={isSaving}
+          />
+        </div>
+        
       </div>
     </div>
     );
