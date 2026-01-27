@@ -1,0 +1,40 @@
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-bar input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.search-bar button {
+  padding: 0.75rem 2rem;
+  min-width: 120px;
+}

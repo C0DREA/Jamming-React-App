@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,6 +11,32 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Light mode colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --accent-color: #d1750c; /* Orange - custom accent color */
+  --accent-hover: #d1750c;
+  --border-color: #e0e0e0;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-color: #d1750c;
+  --accent-hover: #d1750c;
+  --border-color: #4e4e4e;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 a {
@@ -24,8 +50,9 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -36,18 +63,25 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border: none;
   padding: 0.6em 1.2em;
+  border-radius: 24px;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--accent-color);
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-button:hover {
-  border-color: #646cff;
+
+button:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  transform: scale(1.05);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 button:focus,
 button:focus-visible {
@@ -60,7 +94,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: var(--accent-hover);
   }
   button {
     background-color: #f9f9f9;

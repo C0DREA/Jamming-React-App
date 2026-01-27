@@ -1,0 +1,40 @@
+section {
+  flex: 1;
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+section input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+section input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+section p {
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+section button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+}

@@ -12,7 +12,7 @@ function Playlist({ tracks, onRemove, onSave, playlistName, onNameChange, isSavi
     };
 
     return (
-        <section>
+        <section className="playlist">
             <input 
                 value={playlistName}
                 onChange={handleNameChange}

@@ -1,0 +1,27 @@
+.tracklist {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  max-height: 70vh;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.tracklist::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tracklist::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-radius: 10px;
+}
+
+.tracklist::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
+
+.tracklist::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}

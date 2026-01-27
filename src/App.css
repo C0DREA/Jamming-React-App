@@ -1,6 +1,10 @@
 .app {
   padding: 2rem;
   font-family: system-ui, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--bg-primary);
+  min-height: 100vh;
 }
 
 header {
@@ -10,4 +14,16 @@ header {
 .content {
   display: flex;
   gap: 2rem;
+}
+
+/* Responsive design for smaller screens */
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .app {
+    padding: 1rem;
+  }
 }
