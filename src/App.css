@@ -1,3 +1,5 @@
+/* APP CONTAINER - Main wrapper for entire application */
+
 .app {
   padding: 2rem;
   font-family: system-ui, sans-serif;
@@ -11,12 +13,14 @@ header {
   margin-bottom: 1rem;
 }
 
+/* FLEX LAYOUT - Positions search results left, playlist right */
+
 .content {
   display: flex;
   gap: 2rem;
 }
 
-/* Responsive design for smaller screens */
+/* RESPONSIVE - On mobile, stack vertically instead of side-by-side */
 
 @media (max-width: 768px) {
   .content {

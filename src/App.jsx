@@ -1,3 +1,11 @@
+// ============================================
+// Jamming Playlist App - Main Application
+// This is the main component that manages:
+// - Searching for songs using Spotify API
+// - Adding/removing tracks from playlist
+// - Saving playlist to Spotify user account
+// ============================================
+
 import React from 'react';
 import './App.css';
 import Header from './components/Header.jsx';
@@ -9,7 +17,7 @@ import Spotify from './util/Spotify.js';
 
 function App() {
 
-  // setting states
+// STATE MANAGEMENT - Variables that track app data and update the UI
 
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistName, setPlaylistName] = useState('New Playlist');
@@ -21,6 +29,8 @@ function App() {
   const [isSaving, setIsSaving] = useState(false);
 
   // functions
+
+  // SEARCH FUNCTION - Gets song results from Spotify when user searches
 
   const search = async (term) => {
 
@@ -37,6 +47,8 @@ function App() {
     };
   };
 
+  // ADD TRACK FUNCTION - Adds selected song to playlist (prevents duplicates)
+
   const addTrack = (track) => {
     // preventing duplicates
     if(!playlistTracks.find(t => t.id === track.id)) {
@@ -44,11 +56,14 @@ function App() {
     }
   };
 
+  // REMOVE TRACK FUNCTION - Removes song from playlist
+
   const removeTrack = (track) => {
     setPlaylistTracks(playlistTracks.filter(t => t.id !== track.id));
   };
 
-  // error handling for savePlaylist
+  // SAVE PLAYLIST FUNCTION - Saves the playlist to user's Spotify account (with error handling)
+  
   const savePlaylist = async (tracks) => {
     const trackUris = tracks.map(track => track.uri);
     if (trackUris.length === 0) return;
@@ -68,6 +83,8 @@ function App() {
     }
   };
 
+  // UI LAYOUT - Shows header, search bar, search results on left, playlist on right
+  
   return (
     <div className='app'>
       <Header />
