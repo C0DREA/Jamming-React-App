@@ -21,7 +21,11 @@
 }
 
 .search-bar input {
-  max-width: 640px;
+  padding: var(--input-padding-vertical) var(--input-padding-horizontal);        /* taller, more clickable area */
+  font-size: var(--input-font-size);                                             /* slightly larger text */
+  min-height: 48px;                                                              /* ensures consistent height across browsers */
+  border-radius: 12px;
+  max-width: 760px;                                                               /* keep it from growing too wide */
 }
 
 .search-bar input:focus {
@@ -40,6 +44,13 @@
 }
 
 .search-bar button {
-  padding: 0.75rem 2rem;
-  min-width: 120px;
+  padding: var(--btn-padding-vertical) var(--btn-padding-horizontal);
+  font-size: var(--btn-font-size);
+  min-width: 130px;
+  border-radius: 24px;
+}
+
+@media (max-width: 480px) {
+  .search-bar input { max-width: 100%; font-size: 1rem; min-height: 44px; }
+  .search-bar button { min-width: 100px; padding: 0.6rem 1rem; font-size: 0.95rem; }
 }

@@ -19,7 +19,7 @@ header h1 {
 }
 
 .theme-toggle {
-  background-color: transparent;
+  background-color: var(--text-primary);
   color: var(--text-primary);
   border: 2px solid var(--accent-color);
   padding: 0.5rem 1rem;
