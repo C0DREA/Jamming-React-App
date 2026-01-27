@@ -1,4 +1,4 @@
-const clientId = ''; // Your Spotify client ID
+const clientId = ''; // Your Spotify client ID (Developer Dashboard disabled temporarily)
 const redirectUri = 'http://localhost:3000/'; // Your redirect URI
 let accessToken;
 
