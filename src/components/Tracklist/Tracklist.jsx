@@ -12,7 +12,7 @@ function TrackList({ tracks, isRemoval, onAdd, onRemove, playlistTracks }) {
     // If this is playlist list, show "Remove" button instead
 
     return (
-        <section className="trackList">
+        <section className="tracklist">
             {tracks.map(track => {
 
                 // CREATE EACH TRACK ITEM

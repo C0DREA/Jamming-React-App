@@ -1,4 +1,4 @@
-section {
+.playlist {
   flex: 1;
   background-color: var(--bg-secondary);
   padding: 1.5rem;
@@ -8,7 +8,7 @@ section {
   overflow-y: auto;
 }
 
-section input {
+.playlist input {
   width: 100%;
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
@@ -20,19 +20,19 @@ section input {
   font-weight: 600;
 }
 
-section input:focus {
+.playlist input:focus {
   outline: none;
   border-color: var(--accent-color);
 }
 
-section p {
+.playlist p {
   color: var(--text-secondary);
   text-align: center;
   font-style: italic;
   padding: 2rem 0;
 }
 
-section button {
+.playlist button {
   width: 100%;
   margin-top: 1rem;
   padding: 0.75rem;
