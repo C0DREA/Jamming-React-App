@@ -1,5 +1,5 @@
-const clientId = ''; // Your Spotify client ID (Developer Dashboard disabled temporarily)
-const redirectUri = 'http://localhost:3000/'; // Your redirect URI
+const clientId = 'd00fd06af8084a37952a9eec2bbfb97c'; // Your Spotify client ID (WEB API blocked, as I do not have a premium account)
+const redirectUri = 'https://github.com/C0DREA/Jamming-React-App'; // Your redirect URL
 let accessToken;
 
 const Spotify = {

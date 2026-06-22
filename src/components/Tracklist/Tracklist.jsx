@@ -4,6 +4,7 @@
 
 import React from "react";
 import Track from "../Track/Track.jsx";
+import "./Tracklist.css";
 
 function TrackList({ tracks, isRemoval, onAdd, onRemove, playlistTracks }) {
 

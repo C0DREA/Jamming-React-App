@@ -95,12 +95,15 @@ function App() {
             onSearch={search} 
             isSearching={isSearching} 
           />
-          <TrackList 
-            tracks={searchResults} 
-            isRemoval={false} 
-            onAdd={addTrack}
-            playlistTracks={playlistTracks} 
-          />
+          <div className="results">
+            <h2>Results</h2>
+            <TrackList 
+              tracks={searchResults} 
+              isRemoval={false} 
+              onAdd={addTrack}
+              playlistTracks={playlistTracks} 
+            />
+          </div>
         </div>
         <div className='right-column'>
           <Playlist
