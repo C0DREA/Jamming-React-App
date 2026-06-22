@@ -13,7 +13,7 @@ import SearchBar from './components/SearchBar/SearchBar.jsx';
 import TrackList from './components/Tracklist/Tracklist.jsx';
 import Playlist from './components/Playlist/Playlist.jsx';
 import { useState } from 'react';
-import Spotify from './util/Spotify.js';
+import Spotify from './util/SpotifyMock.js';
 
 function App() {
 
