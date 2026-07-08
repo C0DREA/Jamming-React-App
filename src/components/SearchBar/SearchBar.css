@@ -2,35 +2,34 @@
   display: flex;
   gap: 1rem;
   margin: 2rem 0;
-  margin-bottom: 2rem;
   width: 100%;
-  max-width: none;
-  padding: 1.5rem;
+  padding: 1rem;
   background-color: var(--bg-secondary);
   border-radius: 12px;
   box-shadow: var(--card-shadow);
   align-items: center;
+  box-sizing: border-box;
 }
+
+/* INPUT */
 
 .search-bar input {
   flex: 1;
+  min-width: 0; /* 🔴 critical for flex overflow */
+  width: 100%;
+
   border: 2px solid var(--border-color);
   border-radius: 10px;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-  height: 56px;
-}
 
-.search-bar input {
-  padding: var(--input-padding-vertical) var(--input-padding-horizontal);        /* taller, more clickable area */
+  padding: var(--input-padding-vertical) var(--input-padding-horizontal);
   font-size: var(--input-font-size);
-  height: 48px;                                             /* slightly larger text */
-  min-height: 48px;                                                              /* ensures consistent height across browsers */
-  border-radius: 12px;
-  max-width: 760px;
-  border-radius: 8px;                                                               /* keep it from growing too wide */
+
+  height: 48px;
+  min-height: 48px;
+
+  transition: border-color 0.3s ease;
 }
 
 .search-bar input:focus {
@@ -48,19 +47,38 @@
   cursor: not-allowed;
 }
 
+/* BUTTON */
+
 .search-bar button {
-  padding: 0 1.75rem;
+  padding: 0 1rem;
   font-size: var(--btn-font-size);
-  min-width: 130px;
+  min-width: 0; /* 🔴 remove forced width */
   border-radius: 10px;
-  height: 56px;
+  height: 48px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
+/* MOBILE */
+
 @media (max-width: 480px) {
-  .search-bar input { max-width: 100%; font-size: 1rem; min-height: 44px; }
-  .search-bar button { min-width: 100px; padding: 0.6rem 1rem; font-size: 0.95rem; }
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .search-bar button {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+  }
 }
+
+/* DESKTOP */
 
 @media (min-width: 900px) {
   .search-bar input {
@@ -69,7 +87,7 @@
     padding: 0 1.25rem;
   }
 
-   .search-bar button {
+  .search-bar button {
     height: 56px;
     font-size: 1.05rem;
     padding: 0 1.5rem;
