@@ -3,17 +3,17 @@
 ## Overview
 Jamming is a React web application that allows users to search for songs using the Spotify API and create custom playlists that can be saved directly to their Spotify account. Built with modern React patterns and styled with a beautiful dark/light mode toggle.
 
-## Features ✨
+## Features
 
-- 🔍 **Song Search** - Search for songs, artists, or albums using Spotify's search API
-- ➕ **Add Tracks** - Add songs to your custom playlist
-- ❌ **Remove Tracks** - Remove songs from your playlist
-- 💾 **Save Playlists** - Save your created playlist directly to your Spotify account
-- 🌙 **Dark Mode** - Toggle between light and dark themes with persistent storage
-- 📱 **Responsive Design** - Works seamlessly on desktop and mobile devices
-- ⚡ **Error Handling** - Robust error handling and user feedback
+- **Song Search** - Search for songs, artists, or albums using Spotify's search API
+- **Add Tracks** - Add songs to your custom playlist
+- **Remove Tracks** - Remove songs from your playlist
+- **Save Playlists** - Save your created playlist directly to your Spotify account
+- **Dark Mode** - Toggle between light and dark themes with persistent storage
+- **Responsive Design** - Works seamlessly on desktop and mobile devices
+- **Error Handling** - Robust error handling and user feedback
 
-## Tech Stack 🛠️
+## Tech Stack
 
 - **Frontend Framework:** React 18 with Vite
 - **State Management:** React Hooks (useState, useContext)
@@ -22,7 +22,7 @@ Jamming is a React web application that allows users to search for songs using t
 - **Build Tool:** Vite
 - **Language:** JavaScript (ES6+)
 
-## Installation 📦
+## Installation
 
 ### Prerequisites
 - Node.js (v16 or higher)
@@ -81,7 +81,7 @@ Jamming is a React web application that allows users to search for songs using t
    - Click the "Dark Mode" button in the header
    - Your preference is saved and persists across sessions
 
-## Project Structure 📁
+## Project Structure
 
 ```
 src/
@@ -103,7 +103,7 @@ src/
     └── SpotifyMock.js     # Mock data for testing
 ```
 
-## Key Components 🧩
+## Key Components
 
 ### App Component
 Main component managing:
@@ -129,7 +129,7 @@ Displays playlist information:
 - Track list with remove buttons
 - Save to Spotify button
 
-## Features Explained 🔍
+## Features Explained
 
 ### Dark Mode Implementation
 The app uses React Context API to manage theme state globally. CSS variables change based on the `data-theme` attribute, providing smooth transitions between light and dark modes.
@@ -140,7 +140,7 @@ When adding tracks to the playlist, the app checks if the track already exists u
 ### Error Handling
 API calls include try/catch blocks with user-friendly error messages logged to the console.
 
-## Future Improvements 🚀
+## Future Improvements
 
 - [ ] Add ability to reorder tracks in playlist
 - [ ] Show album artwork/cover images
@@ -149,25 +149,18 @@ API calls include try/catch blocks with user-friendly error messages logged to t
 - [ ] Share playlists with friends
 - [ ] Add music visualizer animation
 
-## Known Issues 🐛
+## Known Issues
 
 - Spotify API requires authentication every session
+- Spotify API requires the a premium subscription, in order to be used
 - Some songs may not have preview URLs available
 
-## Learning Resources 📚
+## Learning Resources
 
 - [React Documentation](https://react.dev)
 - [Spotify Web API Docs](https://developer.spotify.com/documentation/web-api)
 - [CSS Variables Guide](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
 
-## License 📄
 
-This project is open source and available under the MIT License.
-
-## Author 👨‍💻
-
-Created as a Codecademy Front-End Engineer Career Path project.
-
----
 
 **Made with ❤️ by C0drea**
