@@ -152,7 +152,7 @@ API calls include try/catch blocks with user-friendly error messages logged to t
 ## Known Issues
 
 - Spotify API requires authentication every session
-- Spotify API requires the a premium subscription, in order to be used
+- Spotify API requires the premium subscription, in order to be used
 - Some songs may not have preview URLs available
 
 ## Learning Resources
